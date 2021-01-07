@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         location_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Location.class);
+                Intent intent = new Intent(getApplication(),Location.class);
                 startActivity(intent);
             }
         });
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         location_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Location.class);
+                Intent intent = new Intent(getApplication(), Location.class);
                 startActivity(intent);
             }
         });
@@ -44,9 +44,11 @@ public class MainActivity extends AppCompatActivity {
         location_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Location.class);
+                Intent intent = new Intent(getApplication(),Location.class);
                 startActivity(intent);
             }
         });
+
+
     }
 }

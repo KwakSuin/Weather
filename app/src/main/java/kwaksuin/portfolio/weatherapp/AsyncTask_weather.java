@@ -12,8 +12,9 @@ import java.util.Locale;
 
 
 // UI 작업을 위해 별도의 스레드로 만들어져서 백그라운드에서 실행되는 태스크
-public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
+public class AsyncTask_weather extends AsyncTask<Integer, Integer, Void> {
     static String result = "";
+    Parsing parsing;
     String line;
     String nowday;
     String nowtime;
@@ -21,20 +22,7 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
     @Override
     protected Void doInBackground(Integer... integers) {
         //파싱
-
-        try {
-            parstring.miseparsing();
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        parstring.chodanparsing();
-        parstring.dongnae2parsing();
-        parstring.dongnae5parsing();
-        parstring.haedal();
-        parstring.midterm();
+        parsing.chodangi();
 
 
         return null;

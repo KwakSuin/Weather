@@ -7,7 +7,10 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -41,10 +44,10 @@ public class Location extends AppCompatActivity {
         sido_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sido.setAdapter(sido_adapter);
 
-        sido.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        sido.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // custom
                 ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE);
                 ((TextView) parent.getChildAt(0)).setTextSize(15);
@@ -54,16 +57,20 @@ public class Location extends AppCompatActivity {
                     sigungu_adapter = ArrayAdapter.createFromResource(Location.this, R.array.spinner_string, android.R.layout.simple_spinner_item);
                     sigungu_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     sigungu.setAdapter(sigungu_adapter);
-
                 } else if (parent.getItemAtPosition(position).equals("서울특별시")) {
                     check_sido = "서울특별시";
                     sigungu_adapter = ArrayAdapter.createFromResource(Location.this, R.array.spinner_seoul, android.R.layout.simple_spinner_item);
                     sigungu_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     sigungu.setAdapter(sigungu_adapter);
 
-                    sigungu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    sigungu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
                         @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE);
+                            ((TextView) parent.getChildAt(0)).setTextSize(15);
+                            parent.getChildAt(0).setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
                             if (parent.getItemAtPosition(position).equals("선택해주세요")) {
                                 check_sigungu = null;
                             } else {
@@ -72,6 +79,11 @@ public class Location extends AppCompatActivity {
                                 check_sigungu = item;
                             }
                         }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
+
                     });
 
                 } else if (parent.getItemAtPosition(position).equals("경기도")) {
@@ -79,17 +91,21 @@ public class Location extends AppCompatActivity {
                     sigungu_adapter = ArrayAdapter.createFromResource(Location.this, R.array.spinner_gyeongi, android.R.layout.simple_spinner_item);
                     sigungu_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     sigungu.setAdapter(sigungu_adapter);
-
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
                 }
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
-        sigungu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        sigungu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE);
                 ((TextView) parent.getChildAt(0)).setTextSize(15);
                 parent.getChildAt(0).setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -105,8 +121,24 @@ public class Location extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(check_sido == "" || check_sigungu == "" || check_sido == null || check_sigungu == null){
-                    Toast.makeText(getApplicationContext(),"모두 선택해 주세요", Toast.LENGTH_SHORT).show();
+                    LayoutInflater inflater = getLayoutInflater();
+                    View layout = inflater.inflate(R.layout.toast_layout, findViewById(R.id.toast_layout));
+
+                    TextView check_msg = layout.findViewById(R.id.check_msg);
+                    Toast toast = new Toast(getApplication());
+
+                    check_msg.setText("모두 선택해주세요.");
+                    check_msg.setTextSize(15);
+                    check_msg.setTextColor(Color.BLACK);
+
+                    toast.setGravity(Gravity.BOTTOM,0,120);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setView(layout);
+                    toast.show();
+
+
                 } else {
+
                     try{
                         FileOutputStream outputStream = openFileOutput("file.text", Context.MODE_PRIVATE);
                         String a = "";
