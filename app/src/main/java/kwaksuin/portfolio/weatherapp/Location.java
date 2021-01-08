@@ -57,6 +57,7 @@ public class Location extends AppCompatActivity {
                     sigungu_adapter = ArrayAdapter.createFromResource(Location.this, R.array.spinner_string, android.R.layout.simple_spinner_item);
                     sigungu_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     sigungu.setAdapter(sigungu_adapter);
+
                 } else if (parent.getItemAtPosition(position).equals("서울특별시")) {
                     check_sido = "서울특별시";
                     sigungu_adapter = ArrayAdapter.createFromResource(Location.this, R.array.spinner_seoul, android.R.layout.simple_spinner_item);
@@ -91,6 +92,26 @@ public class Location extends AppCompatActivity {
                     sigungu_adapter = ArrayAdapter.createFromResource(Location.this, R.array.spinner_gyeongi, android.R.layout.simple_spinner_item);
                     sigungu_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     sigungu.setAdapter(sigungu_adapter);
+
+                    sigungu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE);
+                            ((TextView) parent.getChildAt(0)).setTextSize(15);
+                            parent.getChildAt(0).setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                            if (parent.getItemAtPosition(position).equals("선택해주세요")){
+                                check_sigungu = null;
+                            } else {
+                                String item = parent.getItemAtPosition(position).toString();
+                                check_sigungu = item;
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
                 }

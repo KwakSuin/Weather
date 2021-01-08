@@ -92,7 +92,7 @@
                android:layout_height="100dp"
                android:layout_below="@+id/tomorrow_text"
                android:layout_marginLeft="20dp"
-               android:layout_marginTop="20dp"
+               android:layout_marginTop="10dp"
                android:src="@drawable/cloud_color" />
 
            <TextView
@@ -126,7 +126,7 @@
                android:src="@drawable/rain_color"
                android:layout_below="@id/next_tomorrow_text"
                android:layout_marginRight="25dp"
-               android:layout_marginTop="20dp"/>
+               android:layout_marginTop="10dp"/>
 
            <TextView
                android:layout_width="wrap_content"
