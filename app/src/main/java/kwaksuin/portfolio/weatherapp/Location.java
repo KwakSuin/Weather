@@ -27,8 +27,8 @@ public class Location extends AppCompatActivity {
     Spinner sido;
     Spinner sigungu;
 
-    String check_sido;
-    String check_sigungu;
+    String check_sido ="";
+    String check_sigungu ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,9 +140,9 @@ public class Location extends AppCompatActivity {
                 } else {
 
                     try{
-                        FileOutputStream outputStream = openFileOutput("file.text", Context.MODE_PRIVATE);
+                        FileOutputStream outputStream = openFileOutput("location", MODE_PRIVATE);
                         String a = "";
-                        a = check_sido + " " + check_sigungu;
+                        a = check_sido + check_sigungu;
                         outputStream.write(a.getBytes());
                         outputStream.close();
                         finish();

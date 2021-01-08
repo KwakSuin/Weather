@@ -12,7 +12,6 @@
         android:id="@+id/location_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="horizontal"
         android:layout_marginTop="30dp">
 
@@ -20,19 +19,19 @@
             android:id="@+id/location_img"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
             android:background="@drawable/location"
             android:backgroundTint="#ffffff" />
 
         <TextView
             android:id="@+id/location"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ygotjalnanfont"
             android:text="경기도 의정부시"
             android:textColor="#ffffff"
             android:textSize="25sp"
             android:layout_marginTop="3dp"/>
-
 
     </LinearLayout>
 
@@ -65,20 +64,82 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@drawable/weekend_background"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/weekendWeather"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:scrollbars="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
 
-        </androidx.recyclerview.widget.RecyclerView>
+           <TextView
+               android:id="@+id/tomorrow_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="내일 날씨"
+               android:layout_marginLeft="30dp"
+               android:layout_marginTop="20dp"
+               android:layout_alignParentTop="true"
+               android:textSize="20sp"
+               android:fontFamily="@font/ygotjalnanfont"
+               android:textColor="#489FAE"/>
+
+           <ImageView
+               android:id="@+id/tomorrow_img"
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:layout_below="@+id/tomorrow_text"
+               android:layout_marginLeft="20dp"
+               android:layout_marginTop="20dp"
+               android:src="@drawable/cloud_color" />
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_below="@id/tomorrow_img"
+               android:text="조회중"
+               android:fontFamily="@font/ygotjalnanfont"
+               android:textColor="#7112FF"
+               android:layout_marginTop="10dp"
+               android:layout_marginLeft="50dp"/>
+
+           <TextView
+               android:id="@+id/next_tomorrow_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="모레 날씨"
+               android:textSize="20sp"
+               android:layout_marginRight="30dp"
+               android:layout_marginTop="20dp"
+               android:layout_alignParentRight="true"
+               android:fontFamily="@font/ygotjalnanfont"
+               android:textColor="#489FAE"/>
+
+           <ImageView
+               android:id="@+id/next_tomorrow_img"
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:layout_alignParentRight="true"
+               android:layout_centerVertical="true"
+               android:src="@drawable/rain_color"
+               android:layout_below="@id/next_tomorrow_text"
+               android:layout_marginRight="25dp"
+               android:layout_marginTop="20dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_below="@id/tomorrow_img"
+               android:text="조회중"
+               android:fontFamily="@font/ygotjalnanfont"
+               android:textColor="#7112FF"
+               android:layout_marginRight="50dp"
+               android:layout_marginTop="10dp"
+               android:layout_alignParentRight="true" />
+
+       </RelativeLayout>
+
     </LinearLayout>
 </LinearLayout>
