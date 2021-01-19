@@ -160,19 +160,19 @@ public class MainActivity extends AppCompatActivity {
     public static String today() {
         Date date = new Date();
 
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
-        String currentDate = formatter.format(date);
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
+        String currentDate = format.format(date);
 
         return currentDate;
     }
 
     // 현재 시각 가져오기
     public static String time() {
-        SimpleDateFormat formatter = new SimpleDateFormat("HH00", Locale.KOREA);
+        SimpleDateFormat format = new SimpleDateFormat("HH00", Locale.KOREA);
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.HOUR_OF_DAY, -1);
 
-        String currentDate = formatter.format(calendar.getTime());
+        String currentDate = format.format(calendar.getTime());
 
         return currentDate;
     }
