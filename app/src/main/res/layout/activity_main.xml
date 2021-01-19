@@ -49,7 +49,7 @@
             android:src="@drawable/sun_color" />
 
         <TextView
-            android:id="@+id/temp"
+            android:id="@+id/today_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -96,14 +96,15 @@
                android:src="@drawable/cloud_color" />
 
            <TextView
+               android:id="@+id/tomorrow_temp"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_below="@id/tomorrow_img"
-               android:text="조회중"
+               android:text="조회중 / 조회중"
                android:fontFamily="@font/ygotjalnanfont"
                android:textColor="#7112FF"
                android:layout_marginTop="10dp"
-               android:layout_marginLeft="50dp"/>
+               android:layout_marginLeft="20dp"/>
 
            <TextView
                android:id="@+id/next_tomorrow_text"
@@ -129,13 +130,14 @@
                android:layout_marginTop="10dp"/>
 
            <TextView
+               android:id="@+id/next_tomorrow_temp"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_below="@id/tomorrow_img"
-               android:text="조회중"
+               android:text="조회중 / 조회중"
                android:fontFamily="@font/ygotjalnanfont"
                android:textColor="#7112FF"
-               android:layout_marginRight="50dp"
+               android:layout_marginRight="20dp"
                android:layout_marginTop="10dp"
                android:layout_alignParentRight="true" />
 

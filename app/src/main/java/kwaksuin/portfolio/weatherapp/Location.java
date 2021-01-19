@@ -21,6 +21,8 @@ import android.widget.Toast;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+
+// 일단 경기도, 서울만 데이터 저장
 public class Location extends AppCompatActivity {
     ArrayAdapter<CharSequence> sido_adapter;
     ArrayAdapter<CharSequence> sigungu_adapter;
