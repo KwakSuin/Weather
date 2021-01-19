@@ -1,4 +1,5 @@
 # Weather
 Local Weather Application
 
-오늘 날씨, 일주일 날씨
+지역 별
+오늘 날씨, 내일 날씨, 모레 날씨
