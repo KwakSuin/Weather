@@ -32,6 +32,9 @@ public class Location extends AppCompatActivity {
     String check_sido ="";
     String check_sigungu ="";
 
+    String sido_str;
+    String sigungu_str;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,6 +127,9 @@ public class Location extends AppCompatActivity {
             }
         });
 
+        // 선택한 시/도 toString()
+        sido_str = sido.getSelectedItem().toString();
+
 
         sigungu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -176,6 +182,9 @@ public class Location extends AppCompatActivity {
                 }
             }
         });
+
+        // 선택한 시/군/구 toString()
+        sigungu_str = sigungu.getSelectedItem().toString();
 
     }
 }
