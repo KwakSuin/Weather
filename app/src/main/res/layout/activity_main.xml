@@ -104,7 +104,7 @@
                android:fontFamily="@font/ygotjalnanfont"
                android:textColor="#7112FF"
                android:layout_marginTop="10dp"
-               android:layout_marginLeft="20dp"/>
+               android:layout_marginLeft="30dp"/>
 
            <TextView
                android:id="@+id/next_tomorrow_text"
@@ -137,7 +137,7 @@
                android:text="조회중 / 조회중"
                android:fontFamily="@font/ygotjalnanfont"
                android:textColor="#7112FF"
-               android:layout_marginRight="20dp"
+               android:layout_marginRight="30dp"
                android:layout_marginTop="10dp"
                android:layout_alignParentRight="true" />
 
